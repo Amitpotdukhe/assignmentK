@@ -37,7 +37,7 @@ router.post("/signin", async (req, res) => {
         const existingUser = await User.findOne({ username: username });
 
         if (!existingUser || existingUser.password != password) {
-            throw new BadRequestError('Invalid credentials');
+            res.status(401).json({ msg: "credentials not match" })
         }
 
         const userJwt = jwt.sign({
@@ -45,7 +45,7 @@ router.post("/signin", async (req, res) => {
             username: existingUser.username
         }, process.env.JWT_KEY);
         console.log("uesejwt : ", userJwt);
-        res.cookie('userJwt', userJwt, { domain: 'http://localhost:3000', path: '/' });
+        res.cookie('userJwt', userJwt);
         const response = {
             id: existingUser._id,
             name: existingUser.username,
