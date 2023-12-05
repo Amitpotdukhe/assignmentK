@@ -32,8 +32,9 @@ router.post("/create", authUser, async (req, res) => {
 router.post("/comment", authUser, async (req, res) => {
     try {
         const { comment, postId } = req.body;
-
-        const newComment = await Comment.create({ postId: postId, comment: comment, userId: req.user.id });
+        const author = await User.findById(req.user.id);
+        console.log(author);
+        const newComment = await Comment.create({ postId: postId, comment: comment, userId: author.username });
 
         res.status(201).send(newComment);
     } catch (error) {
@@ -48,10 +49,14 @@ router.get("/post/:id", authUser, async (req, res) => {
         console.log(id);
 
         const post = await Post.findById(id);
+        const author = await User.findById(post.createdBy);
+        console.log(author.username);
         const comments = await Comment.find({ postId: id });
+
         const response = {
-            post, comments
+            post, comments, authorName: author.username
         }
+
         res.status(200).send(response)
     } catch (error) {
         console.log(error);
