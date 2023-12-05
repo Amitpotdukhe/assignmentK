@@ -3,12 +3,14 @@ const app = express();
 import mongoose from "mongoose";
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
+import cors from 'cors';
 dotenv.config({ silent: process.env.NODE_ENV === 'production' });
 
 app.use(express.json());
 app.use(
     cookieParser()
 )
+app.use(cors())
 
 const startDB = async () => {
     try {
@@ -24,5 +26,5 @@ import { router } from "./routes/index.js";
 import { postRouter } from "./routes/posts.js";
 app.use(router);
 app.use("/post", postRouter);
-
-app.listen(4000, () => { console.log("started on 4000"); })
+const PORT = process.env.PORT || 4000
+app.listen(PORT, () => { console.log("started on 4000"); })
