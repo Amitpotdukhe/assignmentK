@@ -46,8 +46,12 @@ router.post("/signin", async (req, res) => {
         }, process.env.JWT_KEY);
         console.log("uesejwt : ", userJwt);
         res.cookie('userJwt', userJwt);
-
-        res.status(200).send(existingUser);
+        const response = {
+            id: existingUser._id,
+            name: existingUser.username,
+            token: userJwt
+        }
+        res.status(200).send(response);
     } catch (error) {
         console.log(error);
     }
