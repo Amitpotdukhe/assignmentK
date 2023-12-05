@@ -45,7 +45,7 @@ router.post("/signin", async (req, res) => {
             username: existingUser.username
         }, process.env.JWT_KEY);
         console.log("uesejwt : ", userJwt);
-        res.cookie('userJwt', userJwt);
+        res.cookie('userJwt', userJwt, { domain: 'http://localhost:3000', path: '/' });
         const response = {
             id: existingUser._id,
             name: existingUser.username,
