@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
     }
 })
 
-router.post("/create", async (req, res) => {
+router.post("/create", authUser, async (req, res) => {
     try {
         const { name, postContent } = req.body;
 
@@ -29,7 +29,7 @@ router.post("/create", async (req, res) => {
     }
 })
 
-router.post("/comment", async (req, res) => {
+router.post("/comment", authUser, async (req, res) => {
     try {
         const { comment, postId } = req.body;
 
@@ -42,7 +42,7 @@ router.post("/comment", async (req, res) => {
 
 })
 
-router.get("/post/:id", async (req, res) => {
+router.get("/post/:id", authUser, async (req, res) => {
     try {
         const { id } = req.params;
         console.log(id);
