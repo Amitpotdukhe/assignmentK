@@ -49,7 +49,7 @@ export const HomeScreen = () => {
         setInitialPosts(filteredItems);
     };
     return (
-        <>
+        <div className='container'>
             <Header />
             <input
                 type="text"
@@ -62,6 +62,6 @@ export const HomeScreen = () => {
                     <PostCard key={post._id} title={post.name} content={post.postContent} id={post._id} />
                 ))}
             </div>
-        </>
+        </div>
     )
 }

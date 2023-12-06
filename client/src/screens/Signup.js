@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 import './login.css'
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 
-const LoginScreen = () => {
+const SignupScreen = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [jwt, setJwt] = useState(null);
@@ -14,11 +14,11 @@ const LoginScreen = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log('Updated Cookie Value:', jwt);
-        Cookies.set("userJwt", jwt);
+        // console.log('Updated Cookie Value:', jwt);
+        // Cookies.set("userJwt", jwt);
         if (flag) {
             console.log("navigate");
-            navigate("/")
+            navigate("/login")
         } else {
 
             setIsError(true)
@@ -34,21 +34,21 @@ const LoginScreen = () => {
         console.log('Username:', username);
         console.log('Password:', password);
 
-        const API = 'https://posts-api-an9e.onrender.com/signin';
+        const API = 'https://posts-api-an9e.onrender.com/users/signup';
 
         try {
             const response = await axios.post(API, { username, password });
             console.log(response);
 
-            setJwt(response.data.token);
+            // setJwt(response.data.token);
 
-            if (response?.status === 200) {
+            if (response?.status === 201) {
 
                 setFlag(true)
             }
             // response?.status !== 200 ? setIsError(true) : setIsError(false)
             // response?.status !== 200 && setSuccess(false);
-            console.log('Your Cookie Value:', response.data.token);
+            // console.log('Your Cookie Value:', response.data.token);
 
 
         } catch (error) {
@@ -63,7 +63,7 @@ const LoginScreen = () => {
             {/* {flag ? <h3>Something went wrong.... try again</h3> : <>test</>} */}
             <br />
             <form onSubmit={handleFormSubmit}>
-                <h2>Login</h2>
+                <h2>Create new account</h2>
                 <label>
                     Username:
                     <input
@@ -83,10 +83,10 @@ const LoginScreen = () => {
                 </label>
                 <br />
 
-                <button type="submit">Login</button>
+                <button className='btn' type="submit">Signup</button>
             </form>
         </div>
     );
 };
 
-export default LoginScreen;
+export default SignupScreen;

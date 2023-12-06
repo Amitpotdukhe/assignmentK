@@ -17,7 +17,7 @@ const Header = () => {
     useEffect(() => {
         const x = Cookies.get("userJwt")
         console.log(x);
-        if (x.length > 0) {
+        if (x) {
             setFlag(true);
         } else {
             setFlag(false);
@@ -26,9 +26,9 @@ const Header = () => {
     }, [])
 
     return (
-        <div>
+        <div className="">
 
-            {flag ? <><Link to="/createPost">Create Post</Link>   <Link onClick={logout}>Logout</Link> </> : <Link to="/login">Login</Link>}
+            {flag ? <><Link className='btn' to="/createPost">Create Post</Link>   <Link className='btn' onClick={logout}>Logout</Link> </> : <><Link className='btn' to="/login">Login</Link> <Link className='btn' to="/signup">Signup</Link></>}
         </div>
     )
 }

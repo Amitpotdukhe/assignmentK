@@ -16,6 +16,7 @@ const PostCard = ({ title, content, id }) => {
             }}>
                 <h3>{title}</h3>
                 <p>{content}</p>
+                <p style={{ textDecoration: 'underline' }}>View full post-></p>
             </div>
         </Link>
     );

@@ -1,0 +1,49 @@
+/* Styling for the form */
+form {
+    width: 300px;
+    /* Adjust the width as needed */
+    margin: auto;
+    /* Center the form horizontally */
+    text-align: center;
+    /* Center the form's contents */
+
+    /* Optional: Add some space around the form */
+    margin-top: 50px;
+}
+
+/* Styling for the form fields */
+form input[type="text"],
+form input[type="password"],
+form button {
+    width: 100%;
+    /* Make the fields and button full-width */
+    margin-bottom: 15px;
+    /* Add some space between fields */
+    padding: 10px;
+    box-sizing: border-box;
+    /* Include padding in width/height calculation */
+}
+
+/* Optional: Center the button within the form */
+form button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Optional: Add some styling to the button */
+form button {
+    background-color: #4CAF50;
+    /* Green background color */
+    color: white;
+    /* White text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Optional: Hover effect for the button */
+form button:hover {
+    background-color: #45a049;
+    /* Darker green on hover */
+}

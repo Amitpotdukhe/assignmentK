@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 const CreatePostScreen = () => {
     const [postName, setPostName] = useState('');
     const [postContent, setPostContent] = useState('');
+    const navigate = useNavigate()
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
@@ -24,6 +26,7 @@ const CreatePostScreen = () => {
             console.log(response?.status);
             if (response?.status === 201) {
                 console.log("navigate to another page");
+                navigate('/')
             } else {
                 console.log("dont");
             }
@@ -37,8 +40,8 @@ const CreatePostScreen = () => {
 
     return (
         <div>
-            <h1>Create a New Post</h1>
             <form onSubmit={handleFormSubmit}>
+                <h1>Create a New Post</h1>
                 <label>
                     Post Name:
                     <input
@@ -50,7 +53,9 @@ const CreatePostScreen = () => {
                 <br />
                 <label>
                     Post Content:
-                    <textarea
+                    <input
+                        type='text'
+                        style={{ height: '200px' }}
                         value={postContent}
                         onChange={(e) => setPostContent(e.target.value)}
                     />

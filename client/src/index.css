@@ -11,3 +11,96 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.btn:hover {
+  background-color: rgb(65, 221, 161);
+}
+
+.container {
+  width: 95%;
+  margin: auto;
+  text-align: center;
+
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+}
+
+.container p,
+.container button {
+  margin: 10px 0;
+}
+
+.post-card {
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-card h2 {
+  color: #333;
+}
+
+.post-card p {
+  margin: 10px 0;
+  color: #666;
+}
+
+.post-card input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.post-card button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.post-card button:hover {
+  background-color: #45a049;
+}
+
+.post-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.post-card li {
+  margin: 5px 0;
+  color: #555;
+}
+
+
+.container button:hover {
+  background-color: #45a049;
+}
